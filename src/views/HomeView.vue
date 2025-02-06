@@ -36,7 +36,9 @@ export default {
     },
     async toggleLight(id, state) {
       try {
-        await axios.post(`http://localhost:3000/hue/lights/${id}`, { on: state });
+        await axios.post(`http://localhost:3000/hue/lights/${id}`, {
+          on: state,
+        });
         this.lights[id].state.on = state;
       } catch (error) {
         console.error("Impossible de changer la lumière", error);
